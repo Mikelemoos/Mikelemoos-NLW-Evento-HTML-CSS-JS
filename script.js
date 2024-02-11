@@ -99,6 +99,12 @@ const TotalDePerguntas = Perguntas.length;
 const MostrarTotal = document.querySelector('#acertos');
 MostrarTotal.textContent = Corretas.size + ' de ' + TotalDePerguntas;
 
+function verificarPontuacao() {
+  if (Corretas.size === 10) {
+    alert("Parabéns! Você acertou 10 perguntas!");
+  }
+}
+
 for (const Item of Perguntas) {
   const QuizItem = template.content.querySelector('.quiz-item').cloneNode(true);
   QuizItem.querySelector('h3').textContent = Item.Pergunta;
@@ -118,6 +124,7 @@ for (const Item of Perguntas) {
       }
 
       MostrarTotal.textContent = Corretas.size + ' de ' + TotalDePerguntas;
+      verificarPontuacao();
       
     });
 
